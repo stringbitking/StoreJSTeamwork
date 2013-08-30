@@ -1,0 +1,10 @@
+C:\Users\nicroto\Desktop\CurrentProjects\Store\Store\Store.Data\bin\Debug\Store.Data.dll.config
+C:\Users\nicroto\Desktop\CurrentProjects\Store\Store\Store.Data\bin\Debug\Store.Data.dll
+C:\Users\nicroto\Desktop\CurrentProjects\Store\Store\Store.Data\bin\Debug\Store.Data.pdb
+C:\Users\nicroto\Desktop\CurrentProjects\Store\Store\Store.Data\bin\Debug\EntityFramework.dll
+C:\Users\nicroto\Desktop\CurrentProjects\Store\Store\Store.Data\bin\Debug\Store.Models.dll
+C:\Users\nicroto\Desktop\CurrentProjects\Store\Store\Store.Data\bin\Debug\Store.Models.pdb
+C:\Users\nicroto\Desktop\CurrentProjects\Store\Store\Store.Data\bin\Debug\EntityFramework.xml
+C:\Users\nicroto\Desktop\CurrentProjects\Store\Store\Store.Data\obj\Debug\Store.Data.csprojResolveAssemblyReference.cache
+C:\Users\nicroto\Desktop\CurrentProjects\Store\Store\Store.Data\obj\Debug\Store.Data.dll
+C:\Users\nicroto\Desktop\CurrentProjects\Store\Store\Store.Data\obj\Debug\Store.Data.pdb
