@@ -10,8 +10,9 @@ namespace Store.Models
     public enum Status
     {
         Ordered = 0,
-        Pending = 1,
-        Delivered = 2
+        Rejected = 1,
+        Pending = 2,
+        Sent = 3
     }
 
     public class Orders
