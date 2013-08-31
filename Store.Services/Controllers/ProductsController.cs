@@ -40,23 +40,9 @@ namespace Store.Services.Controllers
             {
                 ValidateLoggedUserIsAdmin(sessionKey);
 
-                var context = new StoreContext();
-                using(context)
-                {
-                    var productEntities = context.Products.Where(p => p.Categories.Any(c => c.Id == id));
-                    var productModels = (from entity in productEntities
-                                         select new ProductModel()
-                                         {
-                                             Id = entity.Id,
-                                             Name = entity.Name,
-                                             Price = entity.Price,
-                                             Info = entity.Info,
-                                             IsDeleted = entity.IsDeleted,
-                                             Quantity = entity.Quantity
-                                         });
+                var productModels = this.GetAll(sessionKey).Where(p => p.Categories.Any(c => c.Id == id));
 
-                    return productModels.ToList();
-                }
+                return productModels.ToList();
             });
 
             return responseMsg;
@@ -199,7 +185,13 @@ namespace Store.Services.Controllers
                               Price = entity.Price,
                               Info = entity.Info,
                               IsDeleted = entity.IsDeleted,
-                              Quantity = entity.Quantity
+                              Quantity = entity.Quantity,
+                              Categories = (from category in entity.Categories
+                                            select new CategoryBaseModel()
+                                            {
+                                                Id = category.Id,
+                                                Name = category.Name,
+                                            })
                           });
 
             return models;

@@ -13,5 +13,6 @@ namespace Store.Services.Models
         public int Quantity { get; set; }
         public bool IsDeleted { get; set; }
         public string Info { get; set; }
+        public virtual IEnumerable<CategoryBaseModel> Categories { get; set; }
     }
 }
