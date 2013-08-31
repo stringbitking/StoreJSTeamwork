@@ -148,6 +148,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="admin.html" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -205,12 +206,37 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="index.html" />
+    <Content Include="Scripts\Admin\app.js" />
+    <Content Include="Scripts\Admin\app\controller.js" />
+    <Content Include="Scripts\Admin\app\persister.js" />
+    <Content Include="Scripts\Admin\data\categories.js" />
+    <Content Include="Scripts\Admin\data\orders.js" />
+    <Content Include="Scripts\Admin\data\products.js" />
+    <Content Include="Scripts\Admin\data\users.js" />
+    <Content Include="Scripts\Admin\libs\angular-kendo.js" />
+    <Content Include="Scripts\Admin\libs\angular.js" />
+    <Content Include="Scripts\Admin\libs\class.js" />
+    <None Include="Scripts\Admin\libs\jquery-2.0.3.intellisense.js" />
+    <Content Include="Scripts\Admin\libs\jquery-2.0.3.js" />
+    <Content Include="Scripts\Admin\libs\jquery-2.0.3.min.js" />
+    <Content Include="Scripts\Admin\libs\rsvp.min.js" />
+    <Content Include="Scripts\Admin\libs\underscore.js" />
+    <Content Include="Scripts\Admin\libs\_references.js" />
+    <Content Include="Scripts\Admin\partials\adminpage.html" />
+    <Content Include="Scripts\Admin\partials\categories.html" />
+    <Content Include="Scripts\Admin\partials\kengular.html" />
+    <Content Include="Scripts\Admin\partials\login-form.html" />
+    <Content Include="Scripts\Admin\partials\products-by-category.html" />
+    <Content Include="Scripts\Admin\partials\single-product.html" />
+    <Content Include="Scripts\Admin\partials\users.html" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\app\data.js" />
     <Content Include="Scripts\app\view-models.js" />
     <Content Include="Scripts\app\views.js" />
     <Content Include="Scripts\libs\class.js" />
     <Content Include="Scripts\libs\http-requester.js" />
+    <Content Include="Scripts\Admin\data\myData.json" />
+    <Content Include="Scripts\Admin\libs\jquery-2.0.3.min.map" />
     <None Include="Scripts\libs\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\libs\jquery-2.0.3.js" />
     <Content Include="Scripts\libs\jquery-2.0.3.min.js" />

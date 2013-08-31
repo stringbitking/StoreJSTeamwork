@@ -1,0 +1,8 @@
+﻿  <div id="grid" kendo-grid k-data-source="myDataSource1" k-selectable="'row'" 
+       k-columns='[{ "field": "dataID", "title": "ID"}, 
+                      { "field": "dataName", "title": "Navn"}, 
+                      { "field": "dataLocation", "title": "Arena" }
+  				  ]'
+       k-sortable="true", k-groupable="true", k-filterable="true"
+       k-on-change="rowSelected(kendoEvent)" k-editable='inline'>
+ </div>
