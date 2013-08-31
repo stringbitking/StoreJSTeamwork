@@ -7,6 +7,8 @@ using System.Web.Http;
 using Store.Data;
 using Store.Models;
 using Store.Services.Models;
+using System.Web.Http.ValueProviders;
+using Store.Services.Attributes;
 
 namespace Store.Services.Controllers
 {
@@ -15,7 +17,9 @@ namespace Store.Services.Controllers
         // GET products/all
         [HttpGet]
         [ActionName("all")]
-        public IQueryable<ProductModel> GetAll([FromUri]string sessionKey)
+        public IQueryable<ProductModel> GetAll(
+            [ValueProvider(typeof(HeaderValueProviderFactory<string>))]
+            string sessionKey)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(() =>
             {
@@ -34,7 +38,9 @@ namespace Store.Services.Controllers
         // GET products/category/id
         [HttpGet]
         [ActionName("category")]
-        public IEnumerable<ProductModel> GetByCategory(int id, [FromUri]string sessionKey)
+        public IEnumerable<ProductModel> GetByCategory(int id, 
+            [ValueProvider(typeof(HeaderValueProviderFactory<string>))]
+            string sessionKey)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(() =>
             {
@@ -51,7 +57,9 @@ namespace Store.Services.Controllers
         // GET products/category/categoryId?page=&count=
         [HttpGet]
         [ActionName("category")]
-        public IEnumerable<ProductModel> GetByCategory(int id, [FromUri]int page, [FromUri]int count, [FromUri]string sessionKey)
+        public IEnumerable<ProductModel> GetByCategory(int id, [FromUri]int page, [FromUri]int count, 
+            [ValueProvider(typeof(HeaderValueProviderFactory<string>))]
+            string sessionKey)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(() =>
             {
@@ -68,7 +76,9 @@ namespace Store.Services.Controllers
         // GET products/all?page=&count=
         [HttpGet]
         [ActionName("all")]
-        public IEnumerable<ProductModel> GetAllByPage([FromUri]int page, [FromUri]int count, [FromUri]string sessionKey)
+        public IEnumerable<ProductModel> GetAllByPage([FromUri]int page, [FromUri]int count, 
+            [ValueProvider(typeof(HeaderValueProviderFactory<string>))]
+            string sessionKey)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(() =>
             {
@@ -85,7 +95,9 @@ namespace Store.Services.Controllers
         // GET products/single/productId
         [HttpGet]
         [ActionName("single")]
-        public ProductModel GetByProductId(int id, [FromUri]string sessionKey)
+        public ProductModel GetByProductId(int id, 
+            [ValueProvider(typeof(HeaderValueProviderFactory<string>))]
+            string sessionKey)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(() =>
             {
@@ -115,7 +127,9 @@ namespace Store.Services.Controllers
         // POST products/create
         [HttpPost]
         [ActionName("create")]
-        public HttpResponseMessage PostProduct([FromUri]string sessionKey, [FromBody]ProductModel model)
+        public HttpResponseMessage PostProduct(
+            [ValueProvider(typeof(HeaderValueProviderFactory<string>))]
+            string sessionKey, [FromBody]ProductModel model)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(() =>
             {
@@ -147,7 +161,9 @@ namespace Store.Services.Controllers
         // PUT product/update/productId
         [HttpPut]
         [ActionName("update")]
-        public HttpResponseMessage PutProduct(int id, [FromUri]string sessionKey, [FromBody]ProductModel model)
+        public HttpResponseMessage PutProduct(int id, 
+            [ValueProvider(typeof(HeaderValueProviderFactory<string>))]
+            string sessionKey, [FromBody]ProductModel model)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(() =>
             {

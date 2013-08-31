@@ -7,6 +7,8 @@ using System.Web.Http;
 using Store.Data;
 using Store.Models;
 using Store.Services.Models;
+using System.Web.Http.ValueProviders;
+using Store.Services.Attributes;
 
 namespace Store.Services.Controllers
 {
@@ -15,7 +17,8 @@ namespace Store.Services.Controllers
         // GET orders/all
         [HttpGet]
         [ActionName("all")]
-        public IQueryable<OrderModel> GetAll([FromUri]string sessionKey)
+        public IQueryable<OrderModel> GetAll(
+            [ValueProvider(typeof(HeaderValueProviderFactory<string>))] string sessionKey)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(() =>
             {
@@ -34,7 +37,9 @@ namespace Store.Services.Controllers
         // GET orders/single/orderId
         [HttpGet]
         [ActionName("single")]
-        public OrderDetailsModel GetOrder([FromUri]string sessionKey, int orderId)
+        public OrderDetailsModel GetOrder(
+            [ValueProvider(typeof(HeaderValueProviderFactory<string>))]
+            string sessionKey, int orderId)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(() =>
             {
@@ -63,7 +68,9 @@ namespace Store.Services.Controllers
         // POST orders/create
         [HttpPost]
         [ActionName("create")]
-        public HttpResponseMessage PostOrder([FromUri]string sessionKey, [FromBody]OrderDetailsModel model)
+        public HttpResponseMessage PostOrder(
+            [ValueProvider(typeof(HeaderValueProviderFactory<string>))]
+            string sessionKey, [FromBody]OrderDetailsModel model)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(() =>
             {
@@ -109,7 +116,9 @@ namespace Store.Services.Controllers
         // PUT orders/approve/orderId
         [HttpPut]
         [ActionName("approve")]
-        public HttpResponseMessage PutApproveOrder(int orderId, [FromUri]string sessionKey)
+        public HttpResponseMessage PutApproveOrder(int orderId, 
+            [ValueProvider(typeof(HeaderValueProviderFactory<string>))]
+            string sessionKey)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(() =>
             {
@@ -139,7 +148,9 @@ namespace Store.Services.Controllers
         // PUT orders/reject/orderId
         [HttpPut]
         [ActionName("reject")]
-        public HttpResponseMessage PutRejectOrder(int orderId, [FromUri]string sessionKey)
+        public HttpResponseMessage PutRejectOrder(int orderId, 
+            [ValueProvider(typeof(HeaderValueProviderFactory<string>))]
+            string sessionKey)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(() =>
             {
@@ -169,7 +180,9 @@ namespace Store.Services.Controllers
         // PUT orders/send/orderId
         [HttpPut]
         [ActionName("send")]
-        public HttpResponseMessage PutSendOrder(int orderId, [FromUri]string sessionKey)
+        public HttpResponseMessage PutSendOrder(int orderId, 
+            [ValueProvider(typeof(HeaderValueProviderFactory<string>))]
+            string sessionKey)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(() =>
             {
