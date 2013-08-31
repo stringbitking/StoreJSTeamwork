@@ -10,6 +10,17 @@ namespace Store.Services
         public static void Register(HttpConfiguration config)
         {
             config.Routes.MapHttpRoute(
+                name: "OrdersApi",
+                routeTemplate: "api/orders/{orderId}/{action}",
+                defaults: new
+                {
+                    controller = "orders",
+                    orderId = RouteParameter.Optional,
+                    action = RouteParameter.Optional
+                }
+            );
+
+            config.Routes.MapHttpRoute(
                 name: "UsersApi",
                 routeTemplate: "api/users/{action}",
                 defaults: new
