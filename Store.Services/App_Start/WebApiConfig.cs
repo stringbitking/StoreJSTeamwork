@@ -18,6 +18,7 @@ namespace Store.Services
                     action = "update"
                 }
             );
+
             config.Routes.MapHttpRoute(
                 name: "CategoriesApi",
                 routeTemplate: "api/categories/{action}/{id}",
@@ -27,9 +28,21 @@ namespace Store.Services
                     id = RouteParameter.Optional
                 }
             );
+
+            config.Routes.MapHttpRoute(
+                name: "ProductsApi",
+                routeTemplate: "api/products/{action}/{id}",
+                defaults: new
+                {
+                    controller = "products",
+                    id = RouteParameter.Optional,
+                    action = RouteParameter.Optional
+                }
+            );
+
             config.Routes.MapHttpRoute(
                 name: "OrdersApi",
-                routeTemplate: "api/orders/{orderId}/{action}",
+                routeTemplate: "api/orders/{action}/{orderId}",
                 defaults: new
                 {
                     controller = "orders",

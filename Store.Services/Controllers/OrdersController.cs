@@ -31,8 +31,9 @@ namespace Store.Services.Controllers
             return responseMsg;
         }
 
-        // GET orders/orderId
+        // GET orders/single/orderId
         [HttpGet]
+        [ActionName("single")]
         public OrderDetailsModel GetOrder([FromUri]string sessionKey, int orderId)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(() =>
@@ -105,7 +106,7 @@ namespace Store.Services.Controllers
             return responseMsg;
         }
 
-        // PUT orders/orderId/approve
+        // PUT orders/approve/orderId
         [HttpPut]
         [ActionName("approve")]
         public HttpResponseMessage PutApproveOrder(int orderId, [FromUri]string sessionKey)
@@ -135,7 +136,7 @@ namespace Store.Services.Controllers
             return responseMsg;
         }
 
-        // PUT orders/orderId/reject
+        // PUT orders/reject/orderId
         [HttpPut]
         [ActionName("reject")]
         public HttpResponseMessage PutRejectOrder(int orderId, [FromUri]string sessionKey)
@@ -165,7 +166,7 @@ namespace Store.Services.Controllers
             return responseMsg;
         }
 
-        // PUT orders/orderId/send
+        // PUT orders/send/orderId
         [HttpPut]
         [ActionName("send")]
         public HttpResponseMessage PutSendOrder(int orderId, [FromUri]string sessionKey)
