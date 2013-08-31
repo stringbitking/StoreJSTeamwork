@@ -130,7 +130,6 @@ namespace Store.Services.Controllers
         //// GET api/categories/admin/categoryId 
         [HttpGet]
         [ActionName("admin")]
-
         public CategoryAdminFullModel GetCategoryAdmin(int id,
             [ValueProvider(typeof(HeaderValueProviderFactory<string>))]
             string sessionKey)
@@ -142,7 +141,8 @@ namespace Store.Services.Controllers
         // GET api/categories/user?page=0&count=2
         [HttpGet]
         [ActionName("user")]
-        public IQueryable<CategoryFullModel> GetPage(int page, int count, string sessionKey)
+        public IQueryable<CategoryFullModel> GetPage(int page, int count, [ValueProvider(typeof(HeaderValueProviderFactory<string>))]
+            string sessionKey)
         {
             var models = this.GetAll(sessionKey)
                              .Skip(page * count)

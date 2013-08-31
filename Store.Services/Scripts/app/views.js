@@ -40,9 +40,14 @@ window.viewsFactory = (function () {
 	    return getTemplate("home");
 	}
 
+	function getCategoriesView() {
+	    return getTemplate("all-categories");
+	}
+
 	return {
 		getLoginView: getLoginView,
 		//getCarsView: getCarsView,
-		getHomeView: getHomeView
+		getHomeView: getHomeView,
+		getCategoriesView: getCategoriesView
 	};
 }());

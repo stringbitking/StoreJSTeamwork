@@ -63,23 +63,123 @@
 		}
 	});
 
-	//var CarsPersister = Class.create({
-	//	init: function (apiUrl) {
-	//		this.apiUrl = apiUrl;
-	//	},
-	//	all: function () {
-	//		return httpRequester.getJSON(this.apiUrl);
-	//	}
-	//});
+	var CategoriesPersister = Class.create({
+		init: function (apiUrl) {
+			this.apiUrl = apiUrl;
+		},
+		all: function () {
+		    var headers = {
+		        "X-sessionKey": sessionKey
+		    };
+		    return httpRequester.getJSON(this.apiUrl + 'user_all', headers).then(function (data) {
+		        //console.log(data);
+		        return data;
+		    });
+		},
+		getCategoryById: function (id) {
+		    var headers = {
+		        "X-sessionKey": sessionKey
+		    };
 
-	//var StoresPersister = Class.create({
-	//})
+		    return httpRequester.getJSON(this.apiUrl + 'user/' + id, headers).then(function (data) {
+		        console.log(data);
+		        //return data;
+		    });
+		},
+	    // GET api/categories/user?page=0&count=2
+		getCategoriesWithPaging: function (page, count) {
+		    var headers = {
+		        "X-sessionKey": sessionKey
+		    };
+		    var url = this.apiUrl + 'user?page=' + page + '&count=' + count;// + '&sessionKey=' + sessionKey;
+
+		    return httpRequester.getJSON(url , headers).then(function (data) {
+		        console.log(data);
+		        //return data;
+		    });
+		},
+	    // GET api/categories/user?keyword=webapi
+		getCategoriesByName: function (keyword) {
+		    var headers = {
+		        "X-sessionKey": sessionKey
+		    };
+		    var url = this.apiUrl + 'user?keyword=' + keyword;// + '&sessionKey=' + sessionKey;
+
+		    return httpRequester.getJSON(url, headers).then(function (data) {
+		        console.log(data);
+		        //return data;
+		    });
+		}
+	});
+
+	var ProductsPersister = Class.create({
+	    init: function (apiUrl) {
+	        this.apiUrl = apiUrl;
+	    },
+	    all: function () {
+	        var headers = {
+	            "X-sessionKey": sessionKey
+	        };
+	        return httpRequester.getJSON(this.apiUrl + 'all', headers).then(function (data) {
+	            console.log(data);
+	            //return data;
+	        });
+	    },
+	    getProductById: function (id) {
+	        var headers = {
+	            "X-sessionKey": sessionKey
+	        };
+	        //console.log(sessionKey);
+	        return httpRequester.getJSON(this.apiUrl + 'single/' + id, headers).then(function (data) {
+	            console.log(data);
+	            //return data;
+	        });
+	    },
+	    getProductsByPaging: function (page, count) {
+	        var headers = {
+	            "X-sessionKey": sessionKey
+	        };
+	        var url = this.apiUrl + 'all?page=' + page + '&count=' + count;// + '&sessionKey=' + sessionKey;
+
+	        return httpRequester.getJSON(url, headers).then(function (data) {
+	            console.log(data);
+	            //return data;
+	        });
+	    }
+	});
+
+	var OrdersPersister = Class.create({
+	    init: function (apiUrl) {
+	        this.apiUrl = apiUrl;
+	    },
+	    all: function () {
+	        var headers = {
+	            "X-sessionKey": sessionKey
+	        };
+	        return httpRequester.getJSON(this.apiUrl + 'all', headers).then(function (data) {
+	            console.log(data);
+	            //return data;
+	        });
+	    },
+	    getOrderById: function (id) {
+	        var headers = {
+	            "X-sessionKey": sessionKey
+	        };
+	        //console.log(sessionKey);
+	        return httpRequester.getJSON(this.apiUrl + 'single/' + id, headers).then(function (data) {
+	            console.log(data);
+	            //return data;
+	        });
+	    },
+	})
 
 	var DataPersister = Class.create({
 		init: function (apiUrl) {
 			this.apiUrl = apiUrl;
 			this.users = new UsersPersister(apiUrl + "users/");
-			//this.cars = new CarsPersister(apiUrl + "cars/");
+			this.categories = new CategoriesPersister(apiUrl + "categories/");
+			this.products = new ProductsPersister(apiUrl + "products/");
+			this.orders = new OrdersPersister(apiUrl + "orders/");
 			//this.stores = new StoresPersister(apiUrl + "stores/");
 		}
 	});

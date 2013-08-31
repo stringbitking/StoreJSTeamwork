@@ -2,7 +2,7 @@
 
 
 (function () {
-	var appLayout = new kendo.Layout('<div id="main-content"></div>');
+	var appLayout = new kendo.Layout('<div id="main-content"></div><div id="menu-content"></div>');
 	var data = persisters.get("api/");
 
 	vmFactory.setPersister(data);
@@ -13,39 +13,32 @@
 	        router.navigate("/login");
 	    }
 
-	    viewsFactory.getHomeView().then(function (homeViewHtml) {
-	        //console.log('before view home');
+        // start check some queries
+	    //data.categories.getCategoryById(1);
+	    //data.categories.getCategoriesWithPaging(1, 1);
+	    //data.categories.getCategoriesByName('Beverages');
+	    //data.products.getProductById(1);
+	    //data.products.all();
+	    //data.products.getProductsByPaging(1, 1);
+	    data.orders.all();
+	    data.orders.getOrderById(1);
+        // stop check
 
+	    viewsFactory.getHomeView().then(function (homeViewHtml) {
 	        var vm = vmFactory.getHomeVM(
-                //logout function
 						function () {
 						    router.navigate("/login");
 						});
-	        //console.log(vm);
 	        var view = new kendo.View(homeViewHtml, { model: vm });
 	        appLayout.showIn('#main-content', view);
 	        $("#main-menu").kendoMenu({ orientation: "horizontal" });
 
 	    }, function () { alert('do not get home page') });
-
-
-		//viewsFactory.getCarsView()
-		//	.then(function (carsViewHtml) {
-		//		vmFactory.getCarsVM()
-		//		.then(function (vm) {
-		//			var view =
-		//				new kendo.View(carsViewHtml,
-		//				{ model: vm });
-		//			appLayout.showIn("#main-content", view);
-		//		}, function (err) {
-		//			//...
-		//		});
-		//	});
 	});
 
 	router.route("/login", function () {
 		if (data.users.currentUser()) {
-			router.navigate("/");
+		    router.navigate("/");
 		}
 		else {
 			viewsFactory.getLoginView()
@@ -68,6 +61,40 @@
 	    router.navigate("/login");
 	});
 
+	router.route("/categories", function () {
+	    viewsFactory.getCategoriesView()
+        .then(function (categoriesHtml) {
+            vmFactory.getCategoriesVM()
+            .then(function (vm) {
+                var view = new kendo.View(categoriesHtml, { model: vm });
+                appLayout.showIn("#menu-content", view);
+                $("#menu-content ul").kendoMenu({ orientation: "vertical" });
+            }, function(){
+                alert('cannot get model of categories');
+            });
+        }, function(){
+            alert('cannot get categories');
+        })
+	});
+
+	router.route("/products/single/:Id", function (id) {
+	    //console.log(id);
+	});
+
+
+    //viewsFactory.getCarsView()
+    //	.then(function (carsViewHtml) {
+    //		vmFactory.getCarsVM()
+    //		.then(function (vm) {
+    //			var view =
+    //				new kendo.View(carsViewHtml,
+    //				{ model: vm });
+    //			appLayout.showIn("#main-content", view);
+    //		}, function (err) {
+    //			//...
+    //		});
+    //	});
+
 	//only for registered users
 	//router.route("/special", function () {
 	//	if (!data.users.currentUser()) {
@@ -76,7 +103,7 @@
 	//});
 
 	$(function () {
-		appLayout.render("#app");
+	    appLayout.render("#app");
 		router.start();
 	});
 }());

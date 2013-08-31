@@ -60,10 +60,24 @@ window.vmFactory = (function () {
 	    return kendo.observable(userModel);
 	};
 
+	function getCategoriesViewModel() {
+	    return data.categories.all()
+            .then(function (categories) {
+                //console.log(categories);
+                var viewModel = {
+                    categories: categories,
+                    message: ""
+                };
+
+                return kendo.observable(viewModel);
+            });
+	}
+
 	return {
 		getLoginVM: getLoginViewModel,
 		//getCarsVM: getCarsViewModel,
-        getHomeVM: getHomeViewModel,
+		getHomeVM: getHomeViewModel,
+		getCategoriesVM: getCategoriesViewModel,
 		setPersister: function (persister) {
 			data = persister
 		}
