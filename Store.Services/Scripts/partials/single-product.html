@@ -1,0 +1,10 @@
+﻿
+<h2 data-bind="text: product.Name"></h2>
+<div data-bind="text: product.Info"></div>
+<img src="../../Images/1378074616_deliverables.png" />
+<p>Price: <span data-bind="text:product.Price"></span><span> lv</span></p>
+<p>In stock: <span data-bind="text:product.Quantity"></span></p>
+<label for="bite-me">Quantity</label>
+<input type="number" id="bite-me" data-bind="{attr:{max:product.Quantity}, value: quantityToBuy}"/>
+<!--<span style="display:none" data-bind="text: product.Id"></span>-->
+<button data-bind="events: { click: sendToBasket}">Add to Basket</button>

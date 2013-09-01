@@ -1,0 +1,35 @@
+﻿
+<h1 data-bind="text: name"></h1>
+  <div id="grid" data-bind="source: products" data-selectable="row" data-role="grid"
+       data-columns = '[{ field: "Id", hidden: true},
+                    { field: "Name", title: "Name", width: "200px"}, 
+                    { field: "Price", title: "Price", width: "100px"}, 
+                    { field: "Quantity", title: "Quantity", width: "100px"},
+                    {command: [{name: "Details", click: getProductDetails}]}
+  				  ]'
+       data-sortable="true"   data-filterable="true"  data-pageable={pageSize:"2"} style="width:500px" >
+ </div>
+
+<script>
+    function getProductDetails(data) {
+        //console.log(data);
+        data.preventDefault();
+        var dataItem = this.dataItem($(data.currentTarget).closest("tr"));
+        //var carData = dataItem;
+        var id = dataItem.Id;
+        //console.log(id);
+        window.location = "#/products/" + id;
+    }
+</script>
+
+<!--<h1 data-bind="text: name"></h1>
+<ul id="products-list" data-template="products-template" data-bind="source: products">
+</ul>
+
+<script type="text/x-kendo-template" id="products-template">
+    <li>
+        <span class="product-name-in-list" data-bind="text: Name"></span>Price:
+        <span data-bind="text: Price"></span>Quantity:
+        <span data-bind="text: Quantity"></span>
+    </li>
+</script>-->

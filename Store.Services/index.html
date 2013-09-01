@@ -14,11 +14,33 @@
 	<script src="http://crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha1.js"></script>
     <link href="Styles/kendo.common.min.css" rel="stylesheet" />
     <link href="Styles/kendo.silver.min.css" rel="stylesheet" />
+    <style>
+        #products-list span {
+            padding:10px;
+        }
+
+        .product-name-in-list {
+            display:inline-block;
+            width:100px;
+        }
+    </style>
+
 </head>
 <body>
 	<header>
 		<h1>The header</h1>
 	</header>
+
+    <ul id="main-menu" style="display:none">
+        <li><a href="#/">Home</a></li>
+        <li><a href="#/categories">Categories</a></li>
+        <li><a href="#/products">Products</a></li>
+        <li><a href="#/orders">Orders</a></li>
+        <li><a href="#/basket">Basket</a></li>
+        <li><a href="#/about">About</a></li>
+        <li><a href="#/contacts">Contacts</a></li>
+        <li><a href="#/logout">Logout</a></li>
+    </ul>
 	<div id="app">
 	</div>
 	<footer>

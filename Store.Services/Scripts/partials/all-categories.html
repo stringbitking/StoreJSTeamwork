@@ -4,6 +4,6 @@
 
 <script type="text/x-kendo-template" id="categories-template">
     <li>
-        <a href="\#/products/single/#:Id#" data-bind="text: Name" data-id="#:Id#"></a>
+        <a href="\#/products/fromCategory/#:Id#" data-id="#:Id#"><span data-bind="text: Name"></span> - (<span data-bind="text: Products.length"></span>)</a>
     </li>
 </script>

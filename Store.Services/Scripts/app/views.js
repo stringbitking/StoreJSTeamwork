@@ -44,10 +44,25 @@ window.viewsFactory = (function () {
 	    return getTemplate("all-categories");
 	}
 
+	function getProducstFromCategoryView() {
+	    return getTemplate("products-from-category");
+	}
+
+	function getAllProductsView() {
+	    return getTemplate("all-products");
+	}
+
+	function getSingleView() {
+	    return getTemplate("single-product");
+	}
+
 	return {
-		getLoginView: getLoginView,
+	    getLoginView: getLoginView,
+	    getSingleView: getSingleView,
 		//getCarsView: getCarsView,
 		getHomeView: getHomeView,
-		getCategoriesView: getCategoriesView
+		getCategoriesView: getCategoriesView,
+		getProducstFromCategoryView: getProducstFromCategoryView,
+		getAllProductsView: getAllProductsView
 	};
 }());

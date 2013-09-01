@@ -206,6 +206,7 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\1378074616_deliverables.png" />
     <Content Include="index.html" />
     <Content Include="Scripts\Admin\app.js" />
     <Content Include="Scripts\Admin\app\controller.js" />
@@ -246,9 +247,12 @@
     <Content Include="Scripts\libs\rsvp.min.js" />
     <Content Include="Scripts\libs\_references.js" />
     <Content Include="Scripts\partials\all-categories.html" />
+    <Content Include="Scripts\partials\all-products.html" />
     <Content Include="Scripts\partials\cars.html" />
     <Content Include="Scripts\partials\home.html" />
     <Content Include="Scripts\partials\login-form.html" />
+    <Content Include="Scripts\partials\products-from-category.html" />
+    <Content Include="Scripts\partials\single-product.html" />
     <Content Include="Styles\kendo.common.min.css" />
     <Content Include="Styles\kendo.default.min.css" />
     <Content Include="Styles\kendo.silver.min.css" />

@@ -82,8 +82,8 @@
 		    };
 
 		    return httpRequester.getJSON(this.apiUrl + 'user/' + id, headers).then(function (data) {
-		        console.log(data);
-		        //return data;
+		        //console.log(data);
+		        return data;
 		    });
 		},
 	    // GET api/categories/user?page=0&count=2
@@ -121,8 +121,8 @@
 	            "X-sessionKey": sessionKey
 	        };
 	        return httpRequester.getJSON(this.apiUrl + 'all', headers).then(function (data) {
-	            console.log(data);
-	            //return data;
+	            //console.log(data);
+	            return data;
 	        });
 	    },
 	    getProductById: function (id) {
@@ -132,7 +132,7 @@
 	        //console.log(sessionKey);
 	        return httpRequester.getJSON(this.apiUrl + 'single/' + id, headers).then(function (data) {
 	            console.log(data);
-	            //return data;
+	            return data;
 	        });
 	    },
 	    getProductsByPaging: function (page, count) {

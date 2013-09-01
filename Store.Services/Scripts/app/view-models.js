@@ -73,11 +73,58 @@ window.vmFactory = (function () {
             });
 	}
 
+	function getProductsFromCategoryVM(id) {
+	    return data.categories.getCategoryById(id)
+            .then(function (category) {
+                var viewModel = {
+                    name: category.Name,
+                    products: category.Products,
+                    message: "",
+                };
+                return kendo.observable(viewModel);
+            });
+	}
+
+	function getAllProductsVM() {
+	    return data.products.all()
+        .then(function (products) {
+            var viewModel = {
+                products: products,
+                message: ""
+            };
+
+            return kendo.observable(viewModel);
+        })
+	}
+
+	function getSingleProductVM(id) {
+	    return data.products.getProductById(id)
+        .then(function (product) {
+            var viewModel = {
+                product: product,
+                message: "",
+                quantityToBuy: 0,
+                sendToBasket: function () {
+
+
+
+                    console.log(this.get("quantityToBuy"));
+                    console.log(this.get("product.Id"));
+                }
+            };
+
+            return kendo.observable(viewModel);
+        })
+	}
+
 	return {
-		getLoginVM: getLoginViewModel,
+	    getLoginVM: getLoginViewModel,
+	    getSingleProductVM: getSingleProductVM,
 		//getCarsVM: getCarsViewModel,
 		getHomeVM: getHomeViewModel,
 		getCategoriesVM: getCategoriesViewModel,
+		getAllProductsVM:getAllProductsVM,
+		getProductsFromCategoryVM: getProductsFromCategoryVM,
 		setPersister: function (persister) {
 			data = persister
 		}
