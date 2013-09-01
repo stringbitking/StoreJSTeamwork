@@ -238,7 +238,7 @@ namespace Store.Services.Controllers
 
         private static bool ValidateLoggedUserIsAdmin(string sessionKey)
         {
-            if (sessionKey.Length != 40)
+            if (sessionKey.Length != 50)
             {
                 throw new ArgumentException("Invalid session key.");
             }
