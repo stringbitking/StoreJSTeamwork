@@ -127,9 +127,65 @@ namespace Store.Services.Controllers
         }
 
         [ActionName("logout")]
-        public HttpResponseMessage PutLogoutUser()
+        public HttpResponseMessage PutLogoutUser(string sessionKey)
         {
-            throw new NotImplementedException();
+            var responseMsg = this.PerformOperationAndHandleExceptions(
+              () =>
+              {
+                  var context = new StoreContext();
+                  using (context)
+                  {
+                      var user = context.Users.FirstOrDefault(usr => usr.SessionKey == sessionKey);
+
+                      if (user == null)
+                      {
+                          throw new InvalidOperationException("Invalid session key.");
+                      }
+
+                      user.SessionKey = null;
+                      context.SaveChanges();
+
+                      return this.Request.CreateResponse(HttpStatusCode.OK);
+                  }
+              });
+
+            return responseMsg;
+        }
+
+        [ActionName("delete")]
+        [HttpDelete]
+        public HttpResponseMessage DeleteUser(int userId, string sessionKey)
+        {
+            var responseMsg = this.PerformOperationAndHandleExceptions(
+              () =>
+              {
+                  var context = new StoreContext();
+                  using (context)
+                  {
+                      var user = context.Users.FirstOrDefault(usr => usr.SessionKey == sessionKey);
+
+                      if (user == null)
+                      {
+                          throw new ArgumentException("Invalid session key.");
+                      }
+
+                      if (user.IsAdmin)
+                      {
+                          var userToDelete = context.Users.FirstOrDefault(usr => usr.Id == userId);
+
+                          context.Users.Remove(userToDelete);
+                          context.SaveChanges();
+                      }
+                      else
+                      {
+                          throw new InvalidOperationException("Insufficient rights. User is not admin.");
+                      }
+
+                      return this.Request.CreateResponse(HttpStatusCode.OK);
+                  }
+              });
+
+            return responseMsg;
         }
 
         private string GenerateSessionKey(int userId)

@@ -53,10 +53,11 @@ namespace Store.Services
 
             config.Routes.MapHttpRoute(
                 name: "UsersApi",
-                routeTemplate: "api/users/{action}",
+                routeTemplate: "api/users/{action}/{userId}",
                 defaults: new
                 {
-                    controller = "users"
+                    controller = "users",
+                    userId = RouteParameter.Optional
                 }
             );
 

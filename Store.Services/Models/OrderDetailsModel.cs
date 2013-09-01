@@ -13,6 +13,6 @@ namespace Store.Services.Controllers
         public DateTime OrderDate { get; set; }
         public Status Status { get; set; }
         public virtual UserModel User { get; set; }
-        public virtual ICollection<ProductOrderModel> ProductRecords { get; set; }
+        public virtual IEnumerable<ProductOrderModel> ProductRecords { get; set; }
     }
 }
