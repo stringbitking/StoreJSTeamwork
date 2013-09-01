@@ -129,7 +129,7 @@ namespace Store.Services.Controllers
         [ActionName("create")]
         public HttpResponseMessage PostProduct(
             [ValueProvider(typeof(HeaderValueProviderFactory<string>))]
-            string sessionKey, [FromBody]ProductModel model)
+            string sessionKey, [FromBody]ProductCreateModel model)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(() =>
             {
@@ -148,6 +148,29 @@ namespace Store.Services.Controllers
                     };
 
                     context.Products.Add(entity);
+                    context.SaveChanges();
+
+                    var categoriesArr = model.Categories.Split(new char[] { ',', ';', ' ' },
+                        StringSplitOptions.RemoveEmptyEntries);
+
+                    foreach (var categoryStr in categoriesArr)
+                    {
+                        var foundCat = context.Categories.FirstOrDefault(c => c.Name == categoryStr);
+                        if (foundCat != null)
+                        {
+                            entity.Categories.Add(foundCat);
+                        }
+                        else
+                        {
+                            Category cat = new Category()
+                            {
+                                Name = categoryStr
+                            };
+
+                            entity.Categories.Add(cat);
+                        }
+                    }
+
                     context.SaveChanges();
 
                     var response = this.Request.CreateResponse(HttpStatusCode.Created, model);
@@ -215,7 +238,7 @@ namespace Store.Services.Controllers
 
         private static bool ValidateLoggedUserIsAdmin(string sessionKey)
         {
-            if (sessionKey.Length != 50)
+            if (sessionKey.Length != 40)
             {
                 throw new ArgumentException("Invalid session key.");
             }
