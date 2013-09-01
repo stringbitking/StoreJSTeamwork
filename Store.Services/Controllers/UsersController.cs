@@ -5,8 +5,10 @@ using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Web.Http;
+using System.Web.Http.ValueProviders;
 using Store.Data;
 using Store.Models;
+using Store.Services.Attributes;
 
 namespace Store.Services.Controllers
 {
@@ -127,7 +129,7 @@ namespace Store.Services.Controllers
         }
 
         [ActionName("logout")]
-        public HttpResponseMessage PutLogoutUser(string sessionKey)
+        public HttpResponseMessage PutLogoutUser([ValueProvider(typeof(HeaderValueProviderFactory<string>))]string sessionKey)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(
               () =>
@@ -154,7 +156,8 @@ namespace Store.Services.Controllers
 
         [ActionName("delete")]
         [HttpDelete]
-        public HttpResponseMessage DeleteUser(int userId, string sessionKey)
+        public HttpResponseMessage DeleteUser(int userId, 
+            [ValueProvider(typeof(HeaderValueProviderFactory<string>))]string sessionKey)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(
               () =>
