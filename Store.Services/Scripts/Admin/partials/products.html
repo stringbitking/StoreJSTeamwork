@@ -1,0 +1,30 @@
+﻿<link href="../../../Styles/Admin/main.css" rel="stylesheet" />
+<hr>
+In Text:
+<input ng-model="prod.$">
+<br>
+By name:
+<input ng-model="prod.Name" type="search"><br>
+By category:
+<input ng-model="cat.Name" type="search"><br>
+Equality
+<input type="checkbox" ng-model="strict"><br>
+<br />
+<input type="button" name="Add Product" value="Add new product" />
+<table id="searchObjResults">
+    <tr>
+        <th><a href="" ng-click="predicate = 'name'; reverse=false">Product</a>
+            (<a href ng-click="predicate = '-name'; reverse=false">^</a>)</th>
+        <th>Availability</th>
+        <th><a href="" ng-click="predicate = 'catt'; reverse=!reverse">Categories</a></th>
+    </tr>
+    <pre>Sorted by = {{predicate}}; reverse = {{reverse}}</pre>
+    <tr ng-repeat="product in products | filter:prod:strict | orderBy:predicate:reverse">
+        <td>{{product.Name}}</td>
+        <td class="ng-class: {{product.IsDeleted}}" ng-click="changeAvailability(product.Id)">{{(product.IsDeleted) && "NO" || "YES"}}</td>
+        <td ng-repeat="category in product.Categories | filter:cat:strict">
+            <p>"{{category.Name}}"</p>
+        </td>
+    </tr>
+</table>
+<hr>

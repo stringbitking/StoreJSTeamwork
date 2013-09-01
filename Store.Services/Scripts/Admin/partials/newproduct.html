@@ -1,0 +1,32 @@
+﻿<!--<link href="../../../Styles/Admin/milk.css" rel="stylesheet" />-->
+<form id="newProduct" novalidate="novalidate">
+    <fieldset>
+        <legend>Add new product</legend>
+        <p>
+            <label for="cname">Name</label>
+            <input type="text" name="name" ng-model="newProduct.name" minlength="2" required /><br />
+        </p>
+        <p>
+            <label for="price">Price</label>
+            <input type="text" name="price" ng-model="newProduct.price" required /><br />
+        </p>
+        <p>
+            <label for="quantity">Quantity</label>
+            <input type="text" name="quantity" ng-model="newProduct.quantity" required /><br />
+        </p>
+        <p>
+            <label for="info">Info</label>
+            <textarea name="info" ng-model="newProduct.info" placeholder="Product description..." required></textarea>
+        </p>
+        <p>
+            <label for="categories">Categories</label>
+            <input type="text" name="categories" ng-model="newProduct.categries" placeholder="comma separated..." required /><br />
+        </p>
+        <p>
+            <input class="submit" type="submit" value="Submit" ng-click="addNewProduct()" />
+        </p>
+    </fieldset>
+</form>
+<!--<script>
+    $("#newProduct").validate();
+</script>-->

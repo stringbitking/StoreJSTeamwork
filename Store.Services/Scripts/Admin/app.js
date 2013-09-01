@@ -7,6 +7,8 @@
 			.when("/categories", { templateUrl: "Scripts/Admin/partials/categories.html", controller: CategoriesController })
             .when("/category/:name", { templateUrl: "Scripts/Admin/partials/products-by-category.html", controller: CategoryController })
             .when("/kengular", { templateUrl: "Scripts/Admin/partials/kengular.html", controller: KengularController })
+            .when("/products", { templateUrl: "Scripts/Admin/partials/products.html", controller: ProductsController })
+            .when("/newproduct", { templateUrl: "Scripts/Admin/partials/newproduct.html", controller: ProductsController })
 			.otherwise({ redirectTo: "/kengular" });
 	}])
     //.run(function ($rootScope, $location) {

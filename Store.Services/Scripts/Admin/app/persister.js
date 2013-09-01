@@ -15,19 +15,6 @@
                 //return data;
             });
     },
-    register: function (username, password) {
-        var user = {
-            username: username,
-            authCode: CryptoJS.SHA1(password).toString()
-        };
-        return postJSON(this.apiUrl + "register", user)
-            .then(function (data) {
-                //save to localStorage
-                sessionKey = data.sessionKey;
-                bashUsername = data.displayName;
-                return data.displayName;
-            });
-    },
     logout: function () {
         if (!sessionKey) {
             //gyrmi
