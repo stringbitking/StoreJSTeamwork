@@ -6,6 +6,11 @@
     background-color: green;
 }
 
+#searchObjResultsOrders tr:hover
+{
+    background-color: darkblue;
+}
+
 .hidden
 {
     display: none;

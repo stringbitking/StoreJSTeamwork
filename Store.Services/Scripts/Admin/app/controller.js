@@ -4,8 +4,7 @@
 /// <reference path="../libs/underscore.js" />
 
 var serviceUrl = function () {
-    //return "http://storecholrineteam.apphb.com/api/";
-    return "http://localhost:12666/api/";
+    return "http://storecholrineteam.apphb.com/api/";
 }();
 
 function LoginController($scope, $location, $rootScope, $http) {
