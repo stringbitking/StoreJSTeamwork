@@ -6,6 +6,12 @@
     border: 1px solid black;
 }
 
+#menu-content
+{
+    margin: 0 auto;
+    width: 800px;
+}
+
 #app ul
 {
     text-align: left;
