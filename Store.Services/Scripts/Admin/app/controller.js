@@ -23,7 +23,8 @@ function LoginController($scope, $location, $rootScope, $http) {
     };
 
     $scope.login = function () {
-        $scope.loggingUser.authCode = "d033e22ae348aeb5660fc2140aec35850c4da997";
+        //$scope.loggingUser.authCode = "d033e22ae348aeb5660fc2140aec35850c4da997";
+        $scope.loggingUser.authCode = CryptoJS.SHA1($scope.loggingUser.password).toString();
 
         $http.post(url, {
             username: $scope.loggingUser.username,
