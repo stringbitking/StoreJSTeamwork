@@ -1,4 +1,5 @@
-﻿/// <reference path="../libs/_references.js" />
+﻿/// <reference path="../libs/storage-handler.js" />
+/// <reference path="../libs/_references.js" />
 
 window.vmFactory = (function () {
 	var data = null;
@@ -35,17 +36,6 @@ window.vmFactory = (function () {
 		};
 		return kendo.observable(viewModel);
 	};
-
-	//function getCarsViewModel() {
-	//    return data.cars.all()
-	//		.then(function (cars) {
-	//		    var viewModel = {
-	//		        cars: cars,
-	//		        message: ""
-	//		    };
-	//		    return kendo.observable(viewModel);
-	//		});
-	//};
 
 	function getHomeViewModel(logoutCallback) {
 	    var userModel = {
@@ -105,11 +95,8 @@ window.vmFactory = (function () {
                 message: "",
                 quantityToBuy: 0,
                 sendToBasket: function () {
-
-
-
-                    console.log(this.get("quantityToBuy"));
-                    console.log(this.get("product.Id"));
+                    CartRepository.add(this.get("product.Id"), this.get("quantityToBuy"), this.get("product.Name"), this.get("product.Price"));
+                    //console.log(this.get("product.Price"));
                 }
             };
 
@@ -120,11 +107,11 @@ window.vmFactory = (function () {
 	return {
 	    getLoginVM: getLoginViewModel,
 	    getSingleProductVM: getSingleProductVM,
-		//getCarsVM: getCarsViewModel,
 		getHomeVM: getHomeViewModel,
 		getCategoriesVM: getCategoriesViewModel,
 		getAllProductsVM:getAllProductsVM,
 		getProductsFromCategoryVM: getProductsFromCategoryVM,
+
 		setPersister: function (persister) {
 			data = persister
 		}

@@ -62,7 +62,7 @@ namespace Store.Services.Controllers
                         user = new User()
                         {
                             Username = usernameToLower,
-                            AuthCode = model.authCode
+                            AuthCode = model.authCode                            
                         };
 
                         context.Users.Add(user);
@@ -73,7 +73,8 @@ namespace Store.Services.Controllers
 
                         var loggedModel = new LoggedUserModel()
                         {
-                            SessionKey = user.SessionKey
+                            SessionKey = user.SessionKey,
+                            IsAdmin = false
                         };
 
                         var response =
@@ -115,7 +116,8 @@ namespace Store.Services.Controllers
 
                       var loggedModel = new LoggedUserModel()
                       {
-                          SessionKey = user.SessionKey
+                          SessionKey = user.SessionKey,
+                          IsAdmin = user.IsAdmin
                       };
 
                       var response =

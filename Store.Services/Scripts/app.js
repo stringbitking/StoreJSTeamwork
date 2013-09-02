@@ -7,18 +7,28 @@
         var menu = $('#main-menu');
         menu.css({ "display": 'inline-block' });
         menu.kendoMenu({ orientation: "horizontal" });
+        var isAdmin = data.users.isAdmin() + '';
+
+        console.log(isAdmin);
+        //$('#admin-panel').css({ "display": 'none' });
+
+        if (isAdmin == 'true') {
+            $('#admin-panel').css({ "display": 'inline-block' });
+        }
+
+        if (isAdmin == 'false') {
+            $('#admin-panel').css({ "display": 'none' });
+        }
+        //else {
+        //   
+        //}
     }
 
 	var appLayout = new kendo.Layout('<div id="menu-content"></div>');
-    var data = persisters.get("http://storecholrineteam.apphb.com/api/");
-    //var data = persisters.get("api/");
+    //var data = persisters.get("http://storecholrineteam.apphb.com/api/");
+    var data = persisters.get("api/");
 
 	vmFactory.setPersister(data);
-
-
-	//function visualizeUsernameAndLogout() {
-	//    
-	//}
 
 	var router = new kendo.Router();
 	router.route("/", function () {
@@ -26,7 +36,6 @@
 	        router.navigate("/login");
 	    }
 
-	    displayMenu();
 
 	    viewsFactory.getHomeView().then(function (homeViewHtml) {
 	                var vm = vmFactory.getHomeVM(
@@ -41,18 +50,19 @@
 
 	    //visualizeUsernameAndLogout();
         // start check some queries
-	    data.categories.getCategoryById(1);
+	    //data.categories.getCategoryById(1);
 	    //data.categories.getCategoriesWithPaging(1, 1);
 	    //data.categories.getCategoriesByName('Beverages');
 	    //data.products.getProductById(1);
 	    //data.products.all();
 	    //data.products.getProductsByPaging(1, 1);
-	    data.orders.getMyOrders();
+	    //data.orders.getMyOrders();
 	    //data.orders.getOrderById(1);
 	    //data.categories.all();
         // stop check
 
-	    
+
+	    displayMenu();
 	});
 
 	router.route("/login", function () {

@@ -1,6 +1,7 @@
 ﻿window.persisters = (function () {
 	var sessionKey = localStorage.getItem('sessionKey');
 	var bashUsername = localStorage.getItem('username');
+	var isAdmin = localStorage.getItem('isAdmin');
 
 	var UsersPersister = Class.create({
 		init: function (apiUrl) {
@@ -16,10 +17,12 @@
 				    //save to localStorage
 				    sessionKey = data.SessionKey;
 				    bashUsername = username;
+				    isAdmin = data.IsAdmin;
 				    data.username = username;
-
+				    //console.log(data);
 				    localStorage.setItem('sessionKey', sessionKey);
 				    localStorage.setItem('username', bashUsername);
+				    localStorage.setItem('isAdmin', isAdmin);
 
 					return data;
 				});
@@ -35,6 +38,7 @@
 				    //console.log(data);
 					sessionKey = data.SessionKey;
 					bashUsername = username;
+					isAdmin = data.IsAdmin;
 					data.username = username;
 
 					return data;
@@ -48,6 +52,7 @@
 
 			localStorage.removeItem('sessionKey');
 			localStorage.removeItem('username');
+			localStorage.removeItem('isAdmin');
 
 			var headers = {
 				"X-sessionKey": sessionKey
@@ -60,6 +65,9 @@
 		},
 		currentUser: function () {
 			return bashUsername;
+		},
+		isAdmin: function () {
+		    return isAdmin;
 		}
 	});
 
