@@ -161,30 +161,13 @@ function ProductsController($scope, $location, $rootScope, $http) {
     $scope.changeAvailability = function (id, aval) {
 
         aval = !aval;
-        for (var p in $scope.products) {
-            if (p.Id == id) {
-                p.IsDeleted = aval;
-            }
+        for (var i = 0; i < $scope.products.length; i++) {
+            if ($scope.products[i].Id == id)
+            $scope.products[i].IsDeleted = aval;
         }
     }
-}
 
-function KengularController($scope) {
-
-    $scope.myDataSource1 =
-                [
-                    {
-                        "dataID": 1,
-                        "dataName": "My Name",
-                        "dataLocation": "My Location"
-                    }
-                ]
-
-
-    $scope.myDataSource = new kendo.data.DataSource({
-        transport: {
-            read: "Scripts/Admin/data/myData.json"
-        },
-        pageSize: 5
-    });
+    $scope.redirectToNewProduct = function () {
+        $location.path("/newproduct");
+    }
 }

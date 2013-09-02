@@ -1,6 +1,6 @@
-﻿.true {
+﻿.notavailable {
     background-color:red;
 }
-.false {
+.available {
     background-color:green;
 }

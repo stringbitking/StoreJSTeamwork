@@ -10,7 +10,7 @@ By category:
 Equality
 <input type="checkbox" ng-model="strict"><br>
 <br />
-<input type="button" name="Add Product" value="Add new product" />
+<input type="button" name="Add Product" value="Add new product" ng-click="redirectToNewProduct()"/>
 <table id="searchObjResults">
     <tr>
         <th><a href="" ng-click="predicate = 'name'; reverse=false">Product</a>
@@ -21,7 +21,9 @@ Equality
     <pre>Sorted by = {{predicate}}; reverse = {{reverse}}</pre>
     <tr ng-repeat="product in products | filter:prod:strict | orderBy:predicate:reverse">
         <td>{{product.Name}}</td>
-        <td class="ng-class: {{product.IsDeleted}}" ng-click="changeAvailability(product.Id)">{{(product.IsDeleted) && "NO" || "YES"}}</td>
+        <td>
+            <div ng-class="{available: product.IsDeleted == false, notavailable: product.IsDeleted == true}" ng-click="changeAvailability(product.Id, product.IsDeleted)">{{(product.IsDeleted) && "NO" || "YES"}}</div>
+        </td>
         <td ng-repeat="category in product.Categories | filter:cat:strict">
             <p>"{{category.Name}}"</p>
         </td>

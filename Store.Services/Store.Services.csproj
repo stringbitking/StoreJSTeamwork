@@ -211,16 +211,14 @@
     <Content Include="Scripts\Admin\app.js" />
     <Content Include="Scripts\Admin\app\controller.js" />
     <Content Include="Scripts\Admin\app\persister.js" />
-    <Content Include="Scripts\Admin\data\categories.js" />
-    <Content Include="Scripts\Admin\data\orders.js" />
-    <Content Include="Scripts\Admin\data\products.js" />
-    <Content Include="Scripts\Admin\data\users.js" />
-    <Content Include="Scripts\Admin\libs\angular-kendo.js" />
     <Content Include="Scripts\Admin\libs\angular.js" />
     <Content Include="Scripts\Admin\libs\class.js" />
     <None Include="Scripts\Admin\libs\jquery-2.0.3.intellisense.js" />
     <Content Include="Scripts\Admin\libs\jquery-2.0.3.js" />
     <Content Include="Scripts\Admin\libs\jquery-2.0.3.min.js" />
+    <None Include="Scripts\Admin\libs\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\Admin\libs\jquery.validate.js" />
+    <Content Include="Scripts\Admin\libs\jquery.validate.min.js" />
     <Content Include="Scripts\Admin\libs\rsvp.min.js" />
     <Content Include="Scripts\Admin\libs\underscore.js" />
     <Content Include="Scripts\Admin\libs\_references.js" />
@@ -228,10 +226,11 @@
     <Content Include="Scripts\Admin\partials\categories.html" />
     <Content Include="Scripts\Admin\partials\kengular.html" />
     <Content Include="Scripts\Admin\partials\login-form.html" />
+    <Content Include="Scripts\Admin\partials\newproduct.html" />
     <Content Include="Scripts\Admin\partials\products-by-category.html" />
+    <Content Include="Scripts\Admin\partials\products.html" />
     <Content Include="Scripts\Admin\partials\single-product.html" />
     <Content Include="Scripts\Admin\partials\users.html" />
-    <Content Include="Scripts\Admin\data\myData.json" />
     <Content Include="Scripts\Admin\libs\jquery-2.0.3.min.map" />
     <Content Include="Scripts\app.js" />
     <Content Include="Scripts\app\data.js" />
@@ -253,6 +252,8 @@
     <Content Include="Scripts\partials\login-form.html" />
     <Content Include="Scripts\partials\products-from-category.html" />
     <Content Include="Scripts\partials\single-product.html" />
+    <Content Include="Styles\Admin\main.css" />
+    <Content Include="Styles\Admin\milk.css" />
     <Content Include="Styles\kendo.common.min.css" />
     <Content Include="Styles\kendo.default.min.css" />
     <Content Include="Styles\kendo.silver.min.css" />
@@ -295,6 +296,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Scripts\Admin\data\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
