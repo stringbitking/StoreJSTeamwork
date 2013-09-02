@@ -25,8 +25,8 @@
     }
 
 	var appLayout = new kendo.Layout('<div id="menu-content"></div>');
-    //var data = persisters.get("http://storecholrineteam.apphb.com/api/");
-    var data = persisters.get("api/");
+    var data = persisters.get("http://storecholrineteam.apphb.com/api/");
+    //var data = persisters.get("api/");
 
 	vmFactory.setPersister(data);
 
