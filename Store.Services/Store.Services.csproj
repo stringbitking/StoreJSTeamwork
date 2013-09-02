@@ -261,6 +261,7 @@
     <Content Include="Styles\kendo.common.min.css" />
     <Content Include="Styles\kendo.default.min.css" />
     <Content Include="Styles\kendo.silver.min.css" />
+    <Content Include="Styles\main.css" />
     <Content Include="Styles\Silver\editor.png" />
     <Content Include="Styles\Silver\imagebrowser.png" />
     <Content Include="Styles\Silver\loading-image.gif" />

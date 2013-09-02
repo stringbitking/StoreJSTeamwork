@@ -4,3 +4,31 @@
 .available {
     background-color:green;
 }
+
+#admin-main-wrapper
+{
+    height: 400px;
+    margin: 0 auto;
+    width: 800px;
+}
+
+footer
+{
+    height: 100px;
+    text-align: center;
+    background-color: #b6ff00;
+}
+
+header
+{
+    height: 100px;
+    text-align: center;
+    color: #ff6a00;
+}
+
+body
+{
+    margin: 0;
+    padding: 0;
+    background-color: lightblue;
+}
