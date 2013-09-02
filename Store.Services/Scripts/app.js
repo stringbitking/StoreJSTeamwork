@@ -10,8 +10,8 @@
     }
 
 	var appLayout = new kendo.Layout('<div id="menu-content"></div>');
-    var data = persisters.get("http://storecholrineteam.apphb.com/api/");
-    //var data = persisters.get("api/");
+    //var data = persisters.get("http://storecholrineteam.apphb.com/api/");
+    var data = persisters.get("api/");
 
 	vmFactory.setPersister(data);
 
@@ -47,7 +47,7 @@
 	    //data.products.getProductById(1);
 	    //data.products.all();
 	    //data.products.getProductsByPaging(1, 1);
-	    //data.orders.all();
+	    data.orders.getMyOrders();
 	    //data.orders.getOrderById(1);
 	    //data.categories.all();
         // stop check

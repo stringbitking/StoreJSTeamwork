@@ -152,11 +152,11 @@
 	    init: function (apiUrl) {
 	        this.apiUrl = apiUrl;
 	    },
-	    all: function () {
+	    getMyOrders: function () {
 	        var headers = {
 	            "X-sessionKey": sessionKey
 	        };
-	        return httpRequester.getJSON(this.apiUrl + 'all', headers).then(function (data) {
+	        return httpRequester.getJSON(this.apiUrl + 'myOrders', headers).then(function (data) {
 	            console.log(data);
 	            //return data;
 	        });

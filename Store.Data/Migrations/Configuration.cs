@@ -63,7 +63,7 @@ namespace Store.Data.Migrations
                 {
                     Username = "admin",
                     AuthCode = "d033e22ae348aeb5660fc2140aec35850c4da997",
-                    SessionKey = "d033e22ae348aeb5660fc2140aec35850c4da997",
+                    SessionKey = "d033e22ae348aeb5660fc2140aec35850c4da9971111111111",
                     IsAdmin = true
                 }
             );

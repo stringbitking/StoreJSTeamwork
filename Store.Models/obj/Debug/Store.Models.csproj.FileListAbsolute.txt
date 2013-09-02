@@ -1,0 +1,8 @@
+C:\Users\ilian\Documents\GitHub\StoreJSTeamwork\Store.Models\bin\Debug\Store.Models.dll.config
+C:\Users\ilian\Documents\GitHub\StoreJSTeamwork\Store.Models\bin\Debug\Store.Models.dll
+C:\Users\ilian\Documents\GitHub\StoreJSTeamwork\Store.Models\bin\Debug\Store.Models.pdb
+C:\Users\ilian\Documents\GitHub\StoreJSTeamwork\Store.Models\bin\Debug\EntityFramework.dll
+C:\Users\ilian\Documents\GitHub\StoreJSTeamwork\Store.Models\bin\Debug\EntityFramework.xml
+C:\Users\ilian\Documents\GitHub\StoreJSTeamwork\Store.Models\obj\Debug\Store.Models.csprojResolveAssemblyReference.cache
+C:\Users\ilian\Documents\GitHub\StoreJSTeamwork\Store.Models\obj\Debug\Store.Models.dll
+C:\Users\ilian\Documents\GitHub\StoreJSTeamwork\Store.Models\obj\Debug\Store.Models.pdb
