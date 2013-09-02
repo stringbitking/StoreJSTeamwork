@@ -1,0 +1,57 @@
+﻿#main-wrapper
+{
+    margin: 0 auto;
+    width: 1000px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+#app ul
+{
+    text-align: left;
+}
+
+ul
+{
+    margin: 0;
+}
+
+.clearfix
+{
+    overflow: hidden; /* Clearfix! */
+    zoom: 1;  /* Triggering "hasLayout" in IE */
+    display: block;
+}
+
+/* My Orders */
+.box-wrapper
+{
+    float: left;
+    padding: 5px;
+    margin: 2px;
+    border: 2px solid black;
+}
+
+.box-wrapper:hover
+{
+    cursor: pointer;
+    background-color: lightblue;
+}
+
+.order-box
+{
+    padding: 5px;
+    width: 250px;
+    height: 250px;
+    overflow: scroll;
+    border: 1px solid black;
+    background-color:white;
+}
+
+/* Login */
+#login-set
+{
+    margin: 0 auto;
+    width: 250px;
+}
+

@@ -164,6 +164,22 @@
         })
 	});
 
+	router.route("/orders", function () {
+	    displayMenu();
+	    viewsFactory.getAllOrdersView()
+        .then(function (ordersHtml) {
+            vmFactory.getAllOrdersVM()
+            .then(function (vm) {
+                var view = new kendo.View(ordersHtml, { model: vm });
+                appLayout.showIn("#menu-content", view);
+            }, function () {
+                alert('cannot get model of products');
+            });
+        }, function () {
+            alert('cannot get products');
+        })
+	});
+
 	$(function () {
 	    appLayout.render("#app");
 		router.start();

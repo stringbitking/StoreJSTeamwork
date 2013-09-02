@@ -56,6 +56,10 @@ window.viewsFactory = (function () {
 	    return getTemplate("single-product");
 	}
 
+	function getAllOrdersView() {
+	    return getTemplate("all-orders");
+	}
+
 	return {
 	    getLoginView: getLoginView,
 	    getSingleView: getSingleView,
@@ -63,6 +67,7 @@ window.viewsFactory = (function () {
 		getHomeView: getHomeView,
 		getCategoriesView: getCategoriesView,
 		getProducstFromCategoryView: getProducstFromCategoryView,
-		getAllProductsView: getAllProductsView
+		getAllProductsView: getAllProductsView,
+		getAllOrdersView: getAllOrdersView
 	};
 }());

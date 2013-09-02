@@ -104,6 +104,20 @@ window.vmFactory = (function () {
         })
 	}
 
+	function getAllOrdersViewModel() {
+	    return data.orders.getMyOrders()
+        .then(function (orders) {
+            console.log("orders: ");
+            console.log(orders);
+            var viewModel = {
+                orders: orders,
+                message: ""
+            };
+
+            return kendo.observable(viewModel);
+        })
+	}
+
 	return {
 	    getLoginVM: getLoginViewModel,
 	    getSingleProductVM: getSingleProductVM,
@@ -111,7 +125,7 @@ window.vmFactory = (function () {
 		getCategoriesVM: getCategoriesViewModel,
 		getAllProductsVM:getAllProductsVM,
 		getProductsFromCategoryVM: getProductsFromCategoryVM,
-
+		getAllOrdersVM: getAllOrdersViewModel,
 		setPersister: function (persister) {
 			data = persister
 		}

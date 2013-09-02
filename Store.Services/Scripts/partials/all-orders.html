@@ -1,0 +1,35 @@
+﻿<h1>My Orders</h1>
+
+<ul data-template="myorders-template" data-bind="source: orders" class="clearfix">
+</ul>
+
+<script type="text/x-kendo-template" id="myorders-template">
+    <div class="box-wrapper">
+    <li  class="order-box">
+        <p>Date: <span data-bind="text: OrderDate"></span></p>
+        # if(Status == 0) { #
+        <p>Status: <span>Ordered</span></p>
+        #}#
+        # if(Status == 1) { #
+        <p>Status: <span>Rejected</span></p>
+        #}#
+        # if(Status == 2) { #
+        <p>Status: <span>Pending</span></p>
+        #}#
+        # if(Status == 3) { #
+        <p>Status: <span>Sent</span></p>
+        #}#
+        <h3>Products</h3>
+        <ul data-template="currentOrder-template" data-bind="source: ProductRecords">
+            
+        </ul>
+    </li>
+    </div>
+</script>
+
+<script type="text/x-kendo-template" id="currentOrder-template">
+    <li>
+        <p>Name: <span data-bind="text: Product.Name"></span></p>
+        <p>Quantity: <span data-bind="text: Product.Quantity"></span></p>
+    </li>
+</script>

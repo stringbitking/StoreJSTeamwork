@@ -164,10 +164,7 @@
 	        var headers = {
 	            "X-sessionKey": sessionKey
 	        };
-	        return httpRequester.getJSON(this.apiUrl + 'myOrders', headers).then(function (data) {
-	            console.log(data);
-	            //return data;
-	        });
+	        return httpRequester.getJSON(this.apiUrl + 'myOrders', headers);
 	    },
 	    getOrderById: function (id) {
 	        var headers = {
@@ -179,7 +176,7 @@
 	            //return data;
 	        });
 	    },
-	})
+	});
 
 	var DataPersister = Class.create({
 		init: function (apiUrl) {
