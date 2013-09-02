@@ -1,8 +1,23 @@
 ﻿.notavailable {
     background-color:red;
 }
-.available {
-    background-color:green;
+.available
+{
+    background-color: green;
+}
+
+.hidden
+{
+    display: none;
+}
+
+.nice
+{
+    float: left;
+    margin: 5px;
+    padding: 5px;
+    border: 1px solid black;
+    border-radius: 15px;
 }
 
 #admin-main-wrapper

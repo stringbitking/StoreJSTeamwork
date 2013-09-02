@@ -34,6 +34,64 @@ namespace Store.Services.Controllers
             return responseMsg;
         }
 
+        [HttpGet]
+        [ActionName("adminOrders")]
+        public IEnumerable<OrderDetailsModel> GetAdminOrders([ValueProvider(typeof(HeaderValueProviderFactory<string>))]string sessionKey)
+        {
+            var responseMsg = this.PerformOperationAndHandleExceptions(() =>
+            {
+                bool isAdmin = ValidateLoggedUserIsAdmin(sessionKey);
+
+                var context = new StoreContext();
+                using (context)
+                {
+                    if (isAdmin)
+                    {
+
+                        var user = context.Users.FirstOrDefault(us => us.SessionKey == sessionKey);
+
+                        var myOrders = context.Orders;
+
+                        var models = (from orderEntity in myOrders
+                                      select new OrderDetailsModel()
+                                      {
+                                          Id = orderEntity.Id,
+                                          OrderDate = orderEntity.OrderDate,
+                                          Status = orderEntity.Status,
+                                          User = new UserModel()
+                                          {
+                                              Id = orderEntity.User.Id,
+                                              username = orderEntity.User.Username
+                                          },
+                                          ProductRecords = (from record in orderEntity.ProductRecords
+                                                            select new ProductOrderModel()
+                                                            {
+                                                                Id = record.Id,
+                                                                Quantity = record.Quantity,
+                                                                Product = new ProductModel()
+                                                                {
+                                                                    Id = record.Product.Id,
+                                                                    Info = record.Product.Info,
+                                                                    IsDeleted = record.Product.IsDeleted,
+                                                                    Name = record.Product.Name,
+                                                                    Price = record.Product.Price,
+                                                                    Quantity = record.Product.Quantity
+                                                                }
+                                                            })
+                                      });
+
+                        return models.ToList();
+                    }
+                    else
+                    {
+                        throw new ArgumentException("Not admin!");
+                    }
+                }
+            });
+
+            return responseMsg;
+        }
+
         // GET orders/myOrders
         [HttpGet]
         [ActionName("myOrders")]

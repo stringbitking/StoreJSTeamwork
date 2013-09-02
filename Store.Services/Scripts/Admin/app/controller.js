@@ -4,7 +4,8 @@
 /// <reference path="../libs/underscore.js" />
 
 var serviceUrl = function () {
-    return "http://storecholrineteam.apphb.com/api/";
+    //return "http://storecholrineteam.apphb.com/api/";
+    return "http://localhost:12666/api/";
 }();
 
 function LoginController($scope, $location, $rootScope, $http) {
@@ -107,7 +108,7 @@ function OrdersController($scope, $location, $rootScope, $http) {
     var currentUserAsString = localStorage.getItem("user");
     var currentUser = JSON.parse(currentUserAsString);
     var sessionKey = currentUser.sessionKey;
-    var url = serviceUrl + "orders/all/";
+    var url = serviceUrl + "orders/adminOrders/";
     $scope.products = [];
 
     var config = {
@@ -138,6 +139,32 @@ function OrdersController($scope, $location, $rootScope, $http) {
                 return;
         }
 
+    }
+
+    $scope.showProducts = function (id) {
+        var products;
+        $(".smotan").remove();
+        for (var i = 0; i < $scope.orders.length; i++) {
+            if ($scope.orders[i].Id == id) {
+                products = $scope.orders[i].ProductRecords;
+                break;
+            }
+        }
+
+        if (products) {
+            var div = $("<tr class='smotan'></tr>");
+            var td = $("<td colspan='3'></td>");
+            for (var i = 0; i < products.length; i++) {
+                var product = $("<div class='nice'>");
+                product.append("<p>Name: <span>" + products[i].Product.Name + "</span> | Price: <span>" + products[i].Product.Price + "</span></p>");
+                product.append("<p>Quantity: <span>" + products[i].Quantity + "</span> | Available: <span>" + products[i].Product.Quantity + "</span></p>");
+                
+                td.append(product);
+            }
+
+            div.append(td);
+            $("#" + id + "ord").after(div);
+        }
     }
 
     function changeStatus(url) {

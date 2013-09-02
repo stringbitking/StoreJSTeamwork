@@ -4,8 +4,9 @@
     <tr>
         <th>Date</th>
         <th>Status</th>
+        <th>User</th>
     </tr>
-    <tr ng-repeat="order in orders | filter:order:strict">
+    <tr id="{{order.Id + 'ord'}}" ng-click="showProducts(order.Id)" ng-repeat="order in orders | filter:order:strict">
         <td>{{order.OrderDate}}</td>
         <td>
             <select ng-model="order.Status" ng-change="changeOrderStatus(order.Status, order.Id)">
@@ -15,6 +16,8 @@
                 <option value="3">Sent</option>
             </select>
         </td>
+        <td class="hidden">{{order.Id}}</td>
+        <td>{{order.User.username}}</td>
     </tr>
 </table>
 <hr>
