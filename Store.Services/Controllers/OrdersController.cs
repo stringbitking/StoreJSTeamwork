@@ -121,7 +121,7 @@ namespace Store.Services.Controllers
         [ActionName("create")]
         public HttpResponseMessage PostOrder(
             [ValueProvider(typeof(HeaderValueProviderFactory<string>))]
-            string sessionKey, [FromBody]OrderDetailsModel model)
+            string sessionKey, [FromBody]OrderCreateModel model)
         {
             var responseMsg = this.PerformOperationAndHandleExceptions(() =>
             {
@@ -142,9 +142,9 @@ namespace Store.Services.Controllers
                     context.Orders.Add(orderEntity);
                     context.SaveChanges();
 
-                    foreach (ProductOrderModel productRecord in model.ProductRecords)
+                    foreach (ProductSampleModel productRecord in model.ProductList)
                     {
-                        var product = context.Products.FirstOrDefault(p => p.Id == productRecord.Product.Id);
+                        var product = context.Products.FirstOrDefault(p => p.Id == productRecord.Id);
                         var productOrder = new ProductOrder()
                         {
                             Quantity = productRecord.Quantity,

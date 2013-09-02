@@ -8,3 +8,13 @@ C:\Users\ilian\Documents\GitHub\StoreJSTeamwork\Store.Data\bin\Debug\EntityFrame
 C:\Users\ilian\Documents\GitHub\StoreJSTeamwork\Store.Data\obj\Debug\Store.Data.csprojResolveAssemblyReference.cache
 C:\Users\ilian\Documents\GitHub\StoreJSTeamwork\Store.Data\obj\Debug\Store.Data.dll
 C:\Users\ilian\Documents\GitHub\StoreJSTeamwork\Store.Data\obj\Debug\Store.Data.pdb
+C:\Users\Fear1\Documents\GitHub\StoreJSTeamwork\Store.Data\bin\Debug\Store.Data.dll.config
+C:\Users\Fear1\Documents\GitHub\StoreJSTeamwork\Store.Data\bin\Debug\Store.Data.dll
+C:\Users\Fear1\Documents\GitHub\StoreJSTeamwork\Store.Data\bin\Debug\Store.Data.pdb
+C:\Users\Fear1\Documents\GitHub\StoreJSTeamwork\Store.Data\bin\Debug\EntityFramework.dll
+C:\Users\Fear1\Documents\GitHub\StoreJSTeamwork\Store.Data\bin\Debug\Store.Models.dll
+C:\Users\Fear1\Documents\GitHub\StoreJSTeamwork\Store.Data\bin\Debug\Store.Models.pdb
+C:\Users\Fear1\Documents\GitHub\StoreJSTeamwork\Store.Data\bin\Debug\EntityFramework.xml
+C:\Users\Fear1\Documents\GitHub\StoreJSTeamwork\Store.Data\obj\Debug\Store.Data.csprojResolveAssemblyReference.cache
+C:\Users\Fear1\Documents\GitHub\StoreJSTeamwork\Store.Data\obj\Debug\Store.Data.dll
+C:\Users\Fear1\Documents\GitHub\StoreJSTeamwork\Store.Data\obj\Debug\Store.Data.pdb

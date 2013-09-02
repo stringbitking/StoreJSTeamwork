@@ -131,6 +131,7 @@
     <Compile Include="Models\CategoryAdminFullModel.cs" />
     <Compile Include="Models\CategoryBaseModel.cs" />
     <Compile Include="Models\CategoryFullModel.cs" />
+    <Compile Include="Models\OrderCreateModel.cs" />
     <Compile Include="Models\OrderDetailsModel.cs" />
     <Compile Include="Models\OrderModel.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
@@ -140,6 +141,7 @@
     <Compile Include="Models\ProductCreateModel.cs" />
     <Compile Include="Models\ProductModel.cs" />
     <Compile Include="Models\ProductOrderModel.cs" />
+    <Compile Include="Models\ProductSampleModel.cs" />
     <Compile Include="Models\UserDetails.cs" />
     <Compile Include="Models\UserModel.cs" />
     <Compile Include="Controllers\UsersController.cs" />
