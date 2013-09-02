@@ -253,7 +253,6 @@
     <Content Include="Scripts\partials\all-categories.html" />
     <Content Include="Scripts\partials\all-orders.html" />
     <Content Include="Scripts\partials\all-products.html" />
-    <Content Include="Scripts\partials\cars.html" />
     <Content Include="Scripts\partials\home.html" />
     <Content Include="Scripts\partials\login-form.html" />
     <Content Include="Scripts\partials\products-from-cart.html" />

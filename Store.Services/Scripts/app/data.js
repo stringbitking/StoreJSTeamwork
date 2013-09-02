@@ -1,4 +1,5 @@
-﻿window.persisters = (function () {
+﻿/// <reference path="cart-repository.js" />
+window.persisters = (function () {
 	var sessionKey = localStorage.getItem('sessionKey');
 	var bashUsername = localStorage.getItem('username');
 	var isAdmin = localStorage.getItem('isAdmin');
@@ -53,6 +54,7 @@
 			localStorage.removeItem('sessionKey');
 			localStorage.removeItem('username');
 			localStorage.removeItem('isAdmin');
+			CartRepository.empty();
 
 			var headers = {
 				"X-sessionKey": sessionKey
@@ -61,7 +63,7 @@
 			sessionKey = "";
 			bashUsername = "";
 
-			return;//httpRequester.putJSON(this.apiUrl + "logout", headers);
+			return httpRequester.putJSON(this.apiUrl + "logout", headers);
 		},
 		currentUser: function () {
 			return bashUsername;

@@ -6,23 +6,25 @@
                     { field: "price", title: "Price", width: "100px"}, 
                     { field: "quantity", title: "Quantity", width: "100px"},
                     { field: "total", title: "Total", width: "100px"},
-                 
+                    {command: [{name: "Remove from cart", click: removeProduct}], width:"150px"}
   				  ]'
       
        data-sortable="true"   data-filterable="true"  data-pageable={pageSize:"2"}  >
  </div>
+<p><strong data-bind="text: message"></strong></p>
 <button data-bind="events: { click: clearBasket }">Clear the Bassket</button>
 <button data-bind="events: { click: sendOrder }">Send Order</button>
 
-<!--<script>
-    function getProductDetails(data) {
+<script>
+    function removeProduct(data) {
         //console.log(data);
         data.preventDefault();
         var dataItem = this.dataItem($(data.currentTarget).closest("tr"));
         //var carData = dataItem;
-        var id = dataItem.Id;
+        var id = dataItem.id;
         //console.log(id);
-        window.location = "#/products/" + id;
+        CartRepository.deleteProduct(id);
+        window.location.reload();
     }
-</script>-->
+</script>
 

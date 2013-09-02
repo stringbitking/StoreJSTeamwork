@@ -97,6 +97,8 @@ window.vmFactory = (function () {
                 sendToBasket: function () {
                     CartRepository.addProduct(this.get("product.Id"), this.get("quantityToBuy"), this.get("product.Name"), this.get("product.Price"));
                     //console.log(this.get("product.Price"));
+                    this.set("message", this.get("product.Name")+" was added to your basket!");
+                    this.set("quantityToBuy", 0);
                 }
             };
 
@@ -118,7 +120,7 @@ window.vmFactory = (function () {
         })
 	}
 
-	function getProductsFromCartVM() {
+	function getProductsFromCartVM(successCallback) {
 	    var promise = new RSVP.Promise(function (resolve, reject) {
 	        //CartRepository.empty();
 	        //CartRepository.addProduct(1, 2, "name 1", 23.5);
@@ -132,13 +134,17 @@ window.vmFactory = (function () {
 	            message: "",
 	            clearBasket: function () {
 	                CartRepository.empty();
+	                console.log("neshto");
+	                successCallback();
 	            },
 	            sendOrder: function () {
+	                var self = this;
 	                var orderArr = {
 	                    ProductList: CartRepository.getOrderData()
 	                }
 	                data.orders.send(orderArr).then(function () {
 	                    CartRepository.empty();
+	                    self.set("message", "Your order was sent Succesfully!");
 	                });
 	            }
 	        };

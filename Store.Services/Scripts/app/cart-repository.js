@@ -18,31 +18,34 @@
 var CartRepository = (function () {
 
     this.addProduct = function (id, quantity, name, price) {
+        if (quantity != "0") {
 
-        var cart = localStorage.getObject('cart') || [];
 
-        for (var i = 0, l = cart.length; i < l; i += 1) {
-            if (cart[i].id == id) {
+            var cart = localStorage.getObject('cart') || [];
 
-                cart[i].quantity++;
-                cart[i].total = cart[i].quantity * cart[i].price;
+            for (var i = 0, l = cart.length; i < l; i += 1) {
+                if (cart[i].id == id) {
 
-                localStorage.setObject('cart', cart);
+                    cart[i].quantity = parseInt(quantity) + parseInt(cart[i].quantity);
+                    cart[i].total = cart[i].quantity * cart[i].price;
 
-                return;
-            } 
-            
+                    localStorage.setObject('cart', cart);
+                    return;
+                }
+
+            }
+            var tot = quantity * price
+            var product = {
+                id: id,
+                quantity: quantity,
+                name: name,
+                price: price,
+                total: tot,
+            };
+            cart.push(product);
+            localStorage.setObject('cart', cart);
+           
         }
-        var tot=quantity*price
-        var product = {
-            id: id,
-            quantity: quantity,
-            name:name,
-            price: price,
-            total:tot,
-        };
-        cart.push(product);
-        localStorage.setObject('cart', cart);
         return;
     }
 
@@ -55,6 +58,8 @@ var CartRepository = (function () {
                 break;
             }
         }
+        localStorage.setObject('cart', cart);
+        return;
     }
 
     this.empty = function () {

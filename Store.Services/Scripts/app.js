@@ -25,8 +25,8 @@
     }
 
 	var appLayout = new kendo.Layout('<div id="menu-content"></div>');
-    var data = persisters.get("http://storecholrineteam.apphb.com/api/");
-    //var data = persisters.get("api/");
+    //var data = persisters.get("http://storecholrineteam.apphb.com/api/");
+    var data = persisters.get("api/");
 
 	vmFactory.setPersister(data);
 
@@ -185,7 +185,10 @@
 	    viewsFactory.getProducstFromCartView()
         .then(function (productsHtml) {
 
-            vmFactory.getProductsFromCartVM()
+            vmFactory.getProductsFromCartVM(function () {
+                console.log("neshto APP");
+                router.navigate("/categories");
+            })
             .then(function (vm) {
 
                 var view = new kendo.View(productsHtml, { model: vm });

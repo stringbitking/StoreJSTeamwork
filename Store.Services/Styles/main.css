@@ -3,9 +3,23 @@
     margin: 0 auto;
     width: 1000px;
     text-align: center;
-    border: 1px solid black;
+    border: 5px solid #888;
+    border-radius: 12px;
 }
-
+#header {
+margin-top: -5px;
+margin-left: -4px;
+width: 1000px;
+margin-bottom: 15px;
+border-top-left-radius: 12px;
+border-top-right-radius: 12px;
+border: 5px solid #888;
+background-color: #b6ff00;
+}
+button {
+padding: 5px 15px;
+margin:5px 15px;
+}
 #menu-content
 {
     margin: 0 auto;
