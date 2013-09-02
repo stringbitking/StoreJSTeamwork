@@ -1,5 +1,4 @@
 StoreJSTeamwork
 ===============
 
-JS SPA Client and WebAPI server
-t
+<h1>Project purpose</h1>
