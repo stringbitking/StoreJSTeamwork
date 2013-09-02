@@ -1,7 +1,16 @@
 StoreJSTeamwork
 ===============
 
-<h1>Project purpose</h1>
-<ol>
-  <li>Test</li>
+<h3>Project purpose</h3>
+Course project for JS Frameworks @ Telerik Academy 2013
+Problem solved:
+Online general store implemented as Single Page Application. 
+
+<h2>Team: Chlorine</h2>
+<h3>Team members:</h3>
+<ol> 
+  <li>Oleg Neofitov</li>
+  <li>Ilian Ivanov</li>
+  <li>Dilian Dichov</li>
+  <li>Victor Tsenkov</li>
 </ol>
