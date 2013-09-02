@@ -229,6 +229,7 @@
     <Content Include="Scripts\Admin\partials\kengular.html" />
     <Content Include="Scripts\Admin\partials\login-form.html" />
     <Content Include="Scripts\Admin\partials\newproduct.html" />
+    <Content Include="Scripts\Admin\partials\orders.html" />
     <Content Include="Scripts\Admin\partials\products-by-category.html" />
     <Content Include="Scripts\Admin\partials\products.html" />
     <Content Include="Scripts\Admin\partials\single-product.html" />
