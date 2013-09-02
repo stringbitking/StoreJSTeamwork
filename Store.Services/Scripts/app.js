@@ -25,8 +25,8 @@
     }
 
 	var appLayout = new kendo.Layout('<div id="menu-content"></div>');
-    //var data = persisters.get("http://storecholrineteam.apphb.com/api/");
-    var data = persisters.get("api/");
+    var data = persisters.get("http://storecholrineteam.apphb.com/api/");
+    //var data = persisters.get("api/");
 
 	vmFactory.setPersister(data);
 
@@ -199,6 +199,25 @@
         }, function () {
             alert('cannot get products');
         })
+	});
+
+
+	router.route("/about", function () {
+	    displayMenu();
+	    viewsFactory.getAboutView()
+        .then(function (aboutHtml) {
+            var view = new kendo.View(aboutHtml);
+            appLayout.showIn("#menu-content", view);
+        });
+	});
+    
+	router.route("/contacts", function () {
+	    displayMenu();
+	    viewsFactory.getContactstView()
+        .then(function (contactsHtml) {
+            var view = new kendo.View(contactsHtml);
+            appLayout.showIn("#menu-content", view);
+        });
 	});
 
 	$(function () {

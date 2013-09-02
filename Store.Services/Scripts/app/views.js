@@ -64,10 +64,19 @@ window.viewsFactory = (function () {
 	    return getTemplate("products-from-cart");
 	}
 
+	function getAboutView() {
+	    return getTemplate("about");
+	}
+
+	function getContactstView() {
+	    return getTemplate("contacts");
+	}
+
 	return {
 	    getLoginView: getLoginView,
 	    getSingleView: getSingleView,
-		//getCarsView: getCarsView,
+	    getContactstView: getContactstView,
+	    getAboutView: getAboutView,
 		getHomeView: getHomeView,
 		getCategoriesView: getCategoriesView,
 		getProducstFromCategoryView: getProducstFromCategoryView,
