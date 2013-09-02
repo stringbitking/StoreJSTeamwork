@@ -12,8 +12,8 @@ Online general store implemented as Single Page Application.
 <h2>Team: Chlorine</h2>
 <h3>Team members:</h3>
 <ol> 
-  <li>Oleg Neofitov</li>
-  <li>Ilian Ivanov</li>
-  <li>Dilian Dichov</li>
-  <li>Victor Tsenkov</li>
+  <li><a href="http://telerikacademy.com/Users/neofitov">Oleg Neofitov</a></li>
+  <li><a href="http://telerikacademy.com/Users/ScorpS">Ilian Ivanov</a></li>
+  <li><a href="http://telerikacademy.com/Users/dilian">Dilian Dichov</a></li>
+  <li><a href="http://telerikacademy.com/Users/stringbitking">Victor Tsenkov</a></li>
 </ol>
