@@ -1,0 +1,20 @@
+﻿<hr>
+<br />
+<table id="searchObjResultsOrders">
+    <tr>
+        <th>Date</th>
+        <th>Status</th>
+    </tr>
+    <tr ng-repeat="order in orders | filter:order:strict">
+        <td>{{order.OrderDate}}</td>
+        <td>
+            <select ng-model="order.Status" ng-change="changeOrderStatus(order.Status, order.Id)">
+                <option value="0" ng-show="false">Ordered</option>
+                <option value="1">Rejected</option>
+                <option value="2">Pending</option>
+                <option value="3">Sent</option>
+            </select>
+        </td>
+    </tr>
+</table>
+<hr>

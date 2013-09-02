@@ -22,7 +22,7 @@ Equality
     <tr ng-repeat="product in products | filter:prod:strict | orderBy:predicate:reverse">
         <td>{{product.Name}}</td>
         <td>
-            <div id="{{product.Id}}" ng-class="{available: product.IsDeleted == false, notavailable: product.IsDeleted == true}" ng-click="changeAvailability(product.Id, product.IsDeleted)">{{(product.IsDeleted) && "NO" || "YES"}}</div>
+            <div id="{{'aval' + product.Id}}" ng-class="{available: product.IsDeleted == false, notavailable: product.IsDeleted == true}" ng-click="changeAvailability(product.Id, product.IsDeleted)">{{(product.IsDeleted) && "NO" || "YES"}}</div>
         </td>
         <td ng-repeat="category in product.Categories | filter:cat:strict">
             <p>"{{category.Name}}"</p>
