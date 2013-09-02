@@ -95,7 +95,7 @@ window.vmFactory = (function () {
                 message: "",
                 quantityToBuy: 0,
                 sendToBasket: function () {
-                    CartRepository.add(this.get("product.Id"), this.get("quantityToBuy"), this.get("product.Name"), this.get("product.Price"));
+                    CartRepository.addProduct(this.get("product.Id"), this.get("quantityToBuy"), this.get("product.Name"), this.get("product.Price"));
                     //console.log(this.get("product.Price"));
                 }
             };
@@ -118,6 +118,36 @@ window.vmFactory = (function () {
         })
 	}
 
+	function getProductsFromCartVM() {
+	    var promise = new RSVP.Promise(function (resolve, reject) {
+	        //CartRepository.empty();
+	        //CartRepository.addProduct(1, 2, "name 1", 23.5);
+	        //CartRepository.addProduct(2, 1, "name 2", 12);
+
+	        var productsArr = CartRepository.getCart();
+
+	        var viewModel = {
+
+	            products: productsArr,
+	            message: "",
+	            clearBasket: function () {
+	                CartRepository.empty();
+	            },
+	            sendOrder: function () {
+	                var orderArr = {
+	                    ProductList: CartRepository.getOrderData()
+	                }
+	                data.orders.send(orderArr).then(function () {
+	                    CartRepository.empty();
+	                });
+	            }
+	        };
+	        resolve(kendo.observable(viewModel));
+	    });
+
+	    return promise;
+	}
+
 	return {
 	    getLoginVM: getLoginViewModel,
 	    getSingleProductVM: getSingleProductVM,
@@ -126,6 +156,7 @@ window.vmFactory = (function () {
 		getAllProductsVM:getAllProductsVM,
 		getProductsFromCategoryVM: getProductsFromCategoryVM,
 		getAllOrdersVM: getAllOrdersViewModel,
+		getProductsFromCartVM: getProductsFromCartVM,
 		setPersister: function (persister) {
 			data = persister
 		}

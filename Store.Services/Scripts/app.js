@@ -180,6 +180,24 @@
         })
 	});
 
+	router.route("/basket", function () {
+	    displayMenu();
+	    viewsFactory.getProducstFromCartView()
+        .then(function (productsHtml) {
+
+            vmFactory.getProductsFromCartVM()
+            .then(function (vm) {
+
+                var view = new kendo.View(productsHtml, { model: vm });
+                appLayout.showIn("#menu-content", view);
+            }, function () {
+                alert('cannot get model of products');
+            });
+        }, function () {
+            alert('cannot get products');
+        })
+	});
+
 	$(function () {
 	    appLayout.render("#app");
 		router.start();

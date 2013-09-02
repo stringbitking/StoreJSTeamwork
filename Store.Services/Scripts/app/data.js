@@ -176,6 +176,16 @@
 	            //return data;
 	        });
 	    },
+	    send: function (data) {
+	        var headers = {
+	            "X-sessionKey": sessionKey
+	        };
+
+	        return httpRequester.postJSON(this.apiUrl + 'create', data, headers).then(function (data) {
+	            console.log(data);
+	            return data;
+	        });
+	    },
 	});
 
 	var DataPersister = Class.create({

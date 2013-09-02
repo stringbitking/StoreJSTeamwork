@@ -1,0 +1,28 @@
+﻿
+<h1 > Basket</h1>
+  <div id="grid" data-bind="source: products" data-selectable="row" data-role="grid"
+       data-columns = '[{ field: "id", hidden: true},
+                    { field: "name", title: "Name", width: "200px"}, 
+                    { field: "price", title: "Price", width: "100px"}, 
+                    { field: "quantity", title: "Quantity", width: "100px"},
+                    { field: "total", title: "Total", width: "100px"},
+                 
+  				  ]'
+      
+       data-sortable="true"   data-filterable="true"  data-pageable={pageSize:"2"}  >
+ </div>
+<button data-bind="events: { click: clearBasket }">Clear the Bassket</button>
+<button data-bind="events: { click: sendOrder }">Send Order</button>
+
+<!--<script>
+    function getProductDetails(data) {
+        //console.log(data);
+        data.preventDefault();
+        var dataItem = this.dataItem($(data.currentTarget).closest("tr"));
+        //var carData = dataItem;
+        var id = dataItem.Id;
+        //console.log(id);
+        window.location = "#/products/" + id;
+    }
+</script>-->
+

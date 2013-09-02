@@ -235,6 +235,7 @@
     <Content Include="Scripts\Admin\partials\users.html" />
     <Content Include="Scripts\Admin\libs\jquery-2.0.3.min.map" />
     <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\app\cart-repository.js" />
     <Content Include="Scripts\app\data.js" />
     <Content Include="Scripts\app\view-models.js" />
     <Content Include="Scripts\app\views.js" />
@@ -254,6 +255,7 @@
     <Content Include="Scripts\partials\cars.html" />
     <Content Include="Scripts\partials\home.html" />
     <Content Include="Scripts\partials\login-form.html" />
+    <Content Include="Scripts\partials\products-from-cart.html" />
     <Content Include="Scripts\partials\products-from-category.html" />
     <Content Include="Scripts\partials\single-product.html" />
     <Content Include="Styles\Admin\main.css" />
