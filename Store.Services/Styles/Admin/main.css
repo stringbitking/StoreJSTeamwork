@@ -8,7 +8,9 @@
 
 #searchObjResultsOrders tr:hover
 {
-    background-color: darkblue;
+    cursor: pointer;
+    border: 1px solid orange;
+    border-radius: 10px;
 }
 
 .hidden
